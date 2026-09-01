@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#130f0c" />
+    <title>Oh-video · 最新公开页</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --pitch: #130f0c;
+        --print: #f3e6c4;
+        --clapper: #e24a1b;
+        --xenon: #7ec8c0;
+        --safelight: #9a2433;
+        --mute: #8d8170;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; min-height: 100%; background: var(--pitch); color: var(--print); }
+      body {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        background:
+          radial-gradient(1200px 520px at 80% -10%, rgba(226,74,27,.16), transparent 55%),
+          radial-gradient(900px 420px at 0% 100%, rgba(126,200,192,.1), transparent 50%),
+          var(--pitch);
+      }
+      .board {
+        width: min(980px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 28px 0 72px;
+      }
+      .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 16px;
+        padding-bottom: 22px;
+        border-bottom: 1px solid rgba(243,230,196,.18);
+      }
+      .mark {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .mark b {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        background: var(--clapper);
+        color: var(--pitch);
+        font-family: Syne, sans-serif;
+        font-size: 15px;
+      }
+      .mark strong {
+        display: block;
+        font-family: Syne, sans-serif;
+        font-size: 13px;
+        letter-spacing: .22em;
+      }
+      .mark small {
+        display: block;
+        margin-top: 4px;
+        color: var(--mute);
+        font-size: 10px;
+        letter-spacing: .16em;
+      }
+      .copy {
+        min-height: 38px;
+        padding: 0 14px;
+        border: 1px solid var(--print);
+        background: transparent;
+        color: var(--print);
+        font: inherit;
+        font-size: 11px;
+        letter-spacing: .08em;
+        cursor: pointer;
+      }
+      .copy:hover, .copy.is-done { background: var(--print); color: var(--pitch); }
+      h1 {
+        margin: 28px 0 10px;
+        font-family: Syne, sans-serif;
+        font-size: clamp(42px, 8vw, 84px);
+        line-height: .88;
+        letter-spacing: -.06em;
+      }
+      .brief {
+        max-width: 40rem;
+        margin: 0 0 28px;
+        color: #d8c9aa;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .gate {
+        position: relative;
+        overflow: hidden;
+        background: #070605;
+        border: 1px solid rgba(243,230,196,.2);
+        box-shadow: 0 28px 70px rgba(0,0,0,.45), inset 0 0 0 12px #1b1612;
+      }
+      .gate video, .gate img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        background: #000;
+      }
+      .empty {
+        display: grid;
+        place-items: center;
+        align-content: center;
+        gap: 14px;
+        min-height: 52vw;
+        max-height: 520px;
+        text-align: center;
+      }
+      .empty span {
+        font-family: Syne, sans-serif;
+        font-size: clamp(64px, 12vw, 120px);
+        line-height: .8;
+        color: var(--clapper);
+      }
+      .empty strong { font-size: 13px; font-weight: 500; color: var(--mute); }
+      .meta {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: 18px;
+        border-top: 1px solid rgba(243,230,196,.16);
+      }
+      .meta div { padding: 16px 0; }
+      .meta div + div { padding-left: 16px; border-left: 1px solid rgba(243,230,196,.12); }
+      .meta dt { color: var(--mute); font-size: 10px; letter-spacing: .18em; }
+      .meta dd { margin: 8px 0 0; font-size: 16px; }
+      .lamp {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--xenon);
+      }
+      .lamp i {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--xenon);
+        box-shadow: 0 0 0 0 rgba(126,200,192,.6);
+        animation: pulse 1.6s ease-out infinite;
+      }
+      @keyframes pulse {
+        70% { box-shadow: 0 0 0 10px rgba(126,200,192,0); }
+      }
+      @media (max-width: 720px) {
+        .top { align-items: stretch; flex-direction: column; }
+        .meta { grid-template-columns: 1fr 1fr; }
+        .meta div + div { padding-left: 0; border-left: 0; }
+        .meta div:nth-child(odd) { padding-right: 12px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="board">
+      <header class="top">
+        <div class="mark">
+          <b>OH</b>
+          <div>
+            <strong>OH-VIDEO</strong>
+            <small>GITHUB PAGES · LATEST TAKE</small>
+          </div>
+        </div>
+        <button class="copy" id="copy" type="button">复制这个链接</button>
+      </header>
+      <h1 id="title">最新公开页</h1>
+      <p class="brief" id="brief">正在读取最新一条。</p>
+      <section class="gate" id="gate" aria-live="polite"></section>
+      <dl class="meta">
+        <div><dt>TAKE</dt><dd id="take">—</dd></div>
+        <div><dt>STATUS</dt><dd id="status">—</dd></div>
+        <div><dt>DURATION</dt><dd id="duration">—</dd></div>
+        <div><dt>UPDATED</dt><dd id="updated">—</dd></div>
+      </dl>
+    </main>
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const copy = $("copy");
+      copy.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(window.location.href);
+        copy.textContent = "已复制";
+        copy.classList.add("is-done");
+        window.setTimeout(() => {
+          copy.textContent = "复制这个链接";
+          copy.classList.remove("is-done");
+        }, 1600);
+      });
+      const render = (data) => {
+        $("title").textContent = data.title || "最新公开页";
+        $("brief").textContent = data.brief || "";
+        $("take").textContent = data.take || "—";
+        $("duration").textContent = data.duration ? data.duration + "s" : "—";
+        $("updated").textContent = data.updatedAt
+          ? new Date(data.updatedAt).toLocaleString("zh-CN", { hour12: false })
+          : "—";
+        const live = data.status === "ready" || data.status === "live";
+        $("status").innerHTML = live
+          ? '<span class="lamp"><i></i>最新</span>'
+          : (data.status || "等待");
+        const gate = $("gate");
+        if (data.video) {
+          gate.innerHTML = '<video controls autoplay loop playsinline src="' + data.video + '"></video>';
+        } else {
+          gate.innerHTML = '<div class="empty"><span>10s</span><strong>还没有成片。更新 site/latest.json 后，这个链接会自动显示最新内容。</strong></div>';
+        }
+      };
+      fetch("./latest.json", { cache: "no-store" })
+        .then((response) => response.json())
+        .then(render)
+        .catch(() => render({
+          take: "000",
+          title: "公开页还没写上最新一条",
+          brief: "把内容写进 site/latest.json 再推送，这个 GitHub Pages 链接就会更新。",
+          status: "hold",
+          duration: 10,
+          updatedAt: null,
+          video: null,
+        }));
+    </script>
+  </body>
+</html>

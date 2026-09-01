@@ -1,0 +1,9 @@
+{
+  "take": "001",
+  "title": "CineSpec 公开板",
+  "brief": "这是 Oh-video 的固定公开页。推送到仓库后，同一个 GitHub Pages 链接会自动换成最新内容。",
+  "status": "ready",
+  "duration": 10,
+  "updatedAt": "2026-09-01T18:40:00+08:00",
+  "video": null
+}
