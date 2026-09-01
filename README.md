@@ -14,9 +14,7 @@ bun run dev
 
 - 前端：http://127.0.0.1:5174
 - API：http://127.0.0.1:8788/api/health
-- 公开页：https://voicepeak.github.io/Oh-video/
-
-公开页是 GitHub Pages，链接固定。改 `site/index.html` 或 `site/latest.json` 后推送，别人打开的还是同一个地址，内容会换成最新版。
+- GitHub Pages：https://voicepeak.github.io/Oh-video/
 
 未配置 `DASHSCOPE_API_KEY` 时，可以调试 CineSpec、MCP 协作填写、提示词编译、素材分类和上传，但不能提交真实视频任务。不要使用曾经粘贴到聊天或代码中的旧密钥，请先在阿里云控制台轮换。
 
@@ -47,7 +45,7 @@ LLM_MODEL=deepseek-v4-flash
 - 用户自建素材分类、图片与视频上传
 - SQLite 次数账本：提交预扣 1 次，提交或生成失败自动退回
 - Wan 异步任务提交、轮询、下载并自动进入素材库
-- GitHub Pages 公开页，固定链接分享最新内容
+- GitHub Pages 发布当前前端，链接固定为 https://voicepeak.github.io/Oh-video/
 
 ## 检查
 

@@ -22,8 +22,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+        env:
+          GITHUB_PAGES: "1"
+      - run: |
+          cp dist/index.html dist/404.html
+          touch dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4
